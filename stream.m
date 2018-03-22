@@ -1,3 +1,93 @@
+%=======================================================================
+% Program: STREAM-Matlab
+% Programmer: John D. McCalpin (orignal STREAM), Patryk Kiepas (STREAM-Matlab)
+% RCS Revision: $Id: stream.m,v 0.1 2018/03/22 18:02:33 quepas $
+%-----------------------------------------------------------------------
+% Copyright 1991-2003: John D. McCalpin
+%-----------------------------------------------------------------------
+% License:
+%  1. You are free to use this program and/or to redistribute
+%     this program.
+%  2. You are free to modify this program for your own use,
+%     including commercial use, subject to the publication
+%     restrictions in item 3.
+%  3. You are free to publish results obtained from running this
+%     program, or from works that you derive from this program,
+%     with the following limitations:
+%     3a. In order to be referred to as "STREAM benchmark results",
+%         published results must be in conformance to the STREAM
+%         Run Rules, (briefly reviewed below) published at
+%         http://www.cs.virginia.edu/stream/ref.html
+%         and incorporated herein by reference.
+%         As the copyright holder, John McCalpin retains the
+%         right to determine conformity with the Run Rules.
+%     3b. Results based on modified source code or on runs not in
+%         accordance with the STREAM Run Rules must be clearly
+%         labelled whenever they are published.  Examples of
+%         proper labelling include:
+%         "tuned STREAM benchmark results"
+%         "based on a variant of the STREAM benchmark code"
+%         Other comparable, clear and reasonable labelling is
+%         acceptable.
+%     3c. Submission of results to the STREAM benchmark web site
+%         is encouraged, but not required.
+%  4. Use of this program or creation of derived works based on this
+%     program constitutes acceptance of these licensing restrictions.
+%  5. Absolutely no warranty is expressed or implied.
+%-----------------------------------------------------------------------
+% This program measures sustained memory transfer rates in MB/s for
+% simple computational kernels coded in MATLAB.
+%
+% The intent is to demonstrate the extent to which ordinary user
+% code can exploit the main memory bandwidth of the system under
+% test.
+%=======================================================================
+% The STREAM web page is at:
+%          http://www.cs.virginia.edu/stream/
+%
+% BRIEF INSTRUCTIONS:
+%       0) See http://www.cs.virginia.edu/stream/ref.html for details
+%       1) STREAM requires a timing function called mysecond().
+%          Several examples are provided in this directory.
+%          "CPU" timers are only allowed for uniprocessor runs.
+%          "Wall-clock" timers are required for all multiprocessor runs.
+%       2) The STREAM array sizes must be set to size the test.
+%          The value "N" must be chosen so that each of the three
+%          arrays is at least 4x larger than the sum of all the last-
+%          level caches used in the run, or 1 million elements, which-
+%          ever is larger.
+%          ------------------------------------------------------------
+%          Note that you are free to use any array length and offset
+%          that makes each array 4x larger than the last-level cache.
+%          The intent is to determine the %best% sustainable bandwidth
+%          available with this simple coding.  Of course, lower values
+%          are usually fairly easy to obtain on cached machines, but
+%          by keeping the test to the %best% results, the answers are
+%          easier to interpret.
+%          You may put the arrays in common or not, at your discretion.
+%          There is a commented-out COMMON statement below.
+%          Fortran90 "allocatable" arrays are fine, too.
+%          ------------------------------------------------------------
+%       3) Compile the code with full optimization.  Many compilers
+%          generate unreasonably bad code before the optimizer tightens
+%          things up.  If the results are unreasonably good, on the
+%          other hand, the optimizer might be too smart for me
+%          Please let me know if this happens.
+%       4) Mail the results to mccalpin@cs.virginia.edu
+%          Be sure to include:
+%               a) computer hardware model number and software revision
+%               b) the compiler flags
+%               c) all of the output from the test case.
+%          Please let me know if you do not want your name posted along
+%          with the submitted results.
+%       5) See the web page for more comments about the run rules and
+%          about interpretation of the results.
+%
+% Thanks,
+%   Dr. Bandwidth
+%=========================================================================
+%
+
 % .. Parameters ..
 n = 100000000;
 offset = 0;
