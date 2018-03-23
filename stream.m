@@ -1,6 +1,6 @@
 %=======================================================================
 % Program: STREAM-Matlab
-% Programmer: John D. McCalpin (orignal STREAM), Patryk Kiepas (STREAM-Matlab)
+% Programmer: John D. McCalpin (original STREAM), Patryk Kiepas (STREAM-Matlab)
 % RCS Revision: $Id: stream.m,v 0.1 2018/03/22 18:02:33 quepas $
 %-----------------------------------------------------------------------
 % Copyright 1991-2003: John D. McCalpin
